@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Penduduk - Neo System</title>
+    <title>Data Kelahiran - Neo System</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -298,12 +297,9 @@
         }
 
         @keyframes float {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translateY(0px) rotate(0deg);
             }
-
             50% {
                 transform: translateY(-20px) rotate(180deg);
             }
@@ -313,29 +309,24 @@
             .page-title {
                 font-size: 2rem;
             }
-
             .action-buttons {
                 flex-direction: column;
             }
-
             .table-neo thead {
                 display: none;
             }
-
             .table-neo tbody tr {
                 display: block;
                 margin-bottom: 20px;
                 border-radius: 10px;
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             }
-
             .table-neo tbody td {
                 display: block;
                 text-align: right;
                 padding: 15px;
                 border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             }
-
             .table-neo tbody td::before {
                 content: attr(data-label);
                 float: left;
@@ -360,15 +351,17 @@
         <div class="container">
             <div class="d-flex justify-content-between align-items-center">
                 <div>
-                    <h1 class="page-title">Data Penduduk</h1>
-                    <p class="page-subtitle">Kelola data kependudukan dengan mudah dan efisien</p>
+                    <h1 class="page-title">Data Kelahiran</h1>
+                    <p class="page-subtitle">Kelola data kelahiran dengan mudah dan efisien</p>
                 </div>
-                <a href="{{ route('dashboard') }}" class="btn btn-neo-primary">
-                    <i class="fas fa-arrow-left me-2"></i> Dashboard
-                </a>
-                <a href="{{ route('penduduk.create') }}" class="btn btn-neo-primary">
-                    <i class="fas fa-plus-circle me-2"></i> Tambah Data
-                </a>
+                <div>
+                    <a href="{{ route('dashboard') }}" class="btn btn-neo-primary me-2">
+                        <i class="fas fa-arrow-left me-2"></i> Dashboard
+                    </a>
+                    <a href="{{ route('kelahiran.create') }}" class="btn btn-neo-primary">
+                        <i class="fas fa-plus-circle me-2"></i> Tambah Data
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -378,25 +371,25 @@
         <div class="row mb-4">
             <div class="col-md-3 mb-3">
                 <div class="stats-card">
-                    <div class="stats-number">{{ $penduduks->count() }}</div>
-                    <div class="stats-label">Total Penduduk</div>
+                    <div class="stats-number">{{ $kelahiran->count() }}</div>
+                    <div class="stats-label">Total Kelahiran</div>
                 </div>
             </div>
             <div class="col-md-3 mb-3">
                 <div class="stats-card">
-                    <div class="stats-number">{{ $penduduks->where('gender', 'L')->count() }}</div>
+                    <div class="stats-number">{{ $kelahiran->where('jenis_kelamin', 'L')->count() }}</div>
                     <div class="stats-label">Laki-laki</div>
                 </div>
             </div>
             <div class="col-md-3 mb-3">
                 <div class="stats-card">
-                    <div class="stats-number">{{ $penduduks->where('gender', 'P')->count() }}</div>
+                    <div class="stats-number">{{ $kelahiran->where('jenis_kelamin', 'P')->count() }}</div>
                     <div class="stats-label">Perempuan</div>
                 </div>
             </div>
             <div class="col-md-3 mb-3">
                 <div class="stats-card">
-                    <div class="stats-number">{{ $totalPenduduk ?? '0' }}</div>
+                    <div class="stats-number">{{ $kelahiran->count() }}</div>
                     <div class="stats-label">Dalam Sistem</div>
                 </div>
             </div>
@@ -404,93 +397,100 @@
 
         <!-- Alert Messages -->
         @if(session('success'))
-        <div class="alert alert-neo-success mb-4">
-            <i class="fas fa-check-circle me-2"></i> {{ session('success') }}
-        </div>
+            <div class="alert alert-neo-success mb-4">
+                <i class="fas fa-check-circle me-2"></i> {{ session('success') }}
+            </div>
         @endif
 
         @if(session('error'))
-        <div class="alert alert-neo-danger mb-4">
-            <i class="fas fa-exclamation-circle me-2"></i> {{ session('error') }}
-        </div>
+            <div class="alert alert-neo-danger mb-4">
+                <i class="fas fa-exclamation-circle me-2"></i> {{ session('error') }}
+            </div>
         @endif
 
         <!-- Data Table -->
         <div class="glass-card">
             <div class="card-body p-0">
-                @if($penduduks->count() > 0)
-                <div class="table-responsive">
-                    <table class="table table-neo mb-0">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Nama Lengkap</th>
-                                <th>Tanggal Lahir</th>
-                                <th>Jenis Kelamin</th>
-                                <th>NIK</th>
-                                <th>Telepon</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($penduduks as $penduduk)
-                            <tr>
-                                <td data-label="No">{{ $loop->iteration }}</td>
-                                <td data-label="Nama Lengkap">
-                                    <strong>{{ $penduduk->first_name }} {{ $penduduk->last_name }}</strong>
-                                </td>
-                                <td data-label="Tanggal Lahir">
-                                    {{ \Carbon\Carbon::parse($penduduk->birthday)->format('d M Y') }}
-                                </td>
-                                <td data-label="Jenis Kelamin">
-                                    <span class="badge-gender {{ $penduduk->gender == 'L' ? 'badge-male' : 'badge-female' }}">
-                                        {{ $penduduk->gender == 'L' ? 'Laki-laki' : 'Perempuan' }}
-                                    </span>
-                                </td>
-                                <td data-label="NIK">
-                                    @if($penduduk->nik)
-                                    <i class="fas fa-id-card me-1 text-muted"></i>
-                                    {{ $penduduk->nik }}
-                                    @else
-                                    <span class="text-muted">-</span>
-                                    @endif
-                                </td>
-                                <td data-label="Telepon">
-                                    @if($penduduk->phone)
-                                    <i class="fas fa-phone me-1 text-muted"></i>
-                                    {{ $penduduk->phone }}
-                                    @else
-                                    <span class="text-muted">-</span>
-                                    @endif
-                                </td>
-                                <td data-label="Aksi">
-                                    <div class="action-buttons">
-                                        <a href="{{ route('penduduk.edit', $penduduk->id) }}" class="btn btn-neo-warning btn-sm" title="Edit Data">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                        <form action="{{ route('penduduk.destroy', $penduduk->id) }}" method="POST" class="d-inline">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-neo-danger btn-sm" title="Hapus Data" onclick="return confirm('Yakin ingin menghapus data ini?')">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                @if($kelahiran->count() > 0)
+                    <div class="table-responsive">
+                        <table class="table table-neo mb-0">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nama Bayi</th>
+                                    <th>Tanggal Lahir</th>
+                                    <th>Jenis Kelamin</th>
+                                    <th>Nama Ayah</th>
+                                    <th>Nama Ibu</th>
+                                    <th>Orang Tua</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($kelahiran as $item)
+                                    <tr>
+                                        <td data-label="No">{{ $loop->iteration }}</td>
+                                        <td data-label="Nama Bayi">
+                                            <strong>{{ $item->nama_bayi }}</strong>
+                                        </td>
+                                        <td data-label="Tanggal Lahir">
+                                            {{ $item->tanggal_lahir->format('d/m/Y') }}
+                                        </td>
+                                        <td data-label="Jenis Kelamin">
+                                            @if($item->jenis_kelamin == 'L')
+                                                <span class="badge-gender badge-male">Laki-laki</span>
+                                            @else
+                                                <span class="badge-gender badge-female">Perempuan</span>
+                                            @endif
+                                        </td>
+                                        <td data-label="Nama Ayah">
+                                            <i class="fas fa-user me-1 text-muted"></i>
+                                            {{ $item->nama_ayah }}
+                                        </td>
+                                        <td data-label="Nama Ibu">
+                                            <i class="fas fa-user me-1 text-muted"></i>
+                                            {{ $item->nama_ibu }}
+                                        </td>
+                                        <td data-label="Orang Tua">
+                                            @if($item->orangtua)
+                                                <i class="fas fa-users me-1 text-muted"></i>
+                                                {{ $item->orangtua->nama ?? '-' }}
+                                            @else
+                                                <span class="text-muted">-</span>
+                                            @endif
+                                        </td>
+                                        <td data-label="Aksi">
+                                            <div class="action-buttons">
+                                                <a href="{{ route('kelahiran.edit', $item->id) }}" 
+                                                   class="btn btn-neo-warning btn-sm" title="Edit Data">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <form action="{{ route('kelahiran.destroy', $item->id) }}" 
+                                                      method="POST" class="d-inline">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-neo-danger btn-sm" 
+                                                            title="Hapus Data" 
+                                                            onclick="return confirm('Hapus data?')">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 @else
-                <div class="empty-state">
-                    <i class="fas fa-users"></i>
-                    <h4>Belum Ada Data Penduduk</h4>
-                    <p>Mulai dengan menambahkan data penduduk pertama Anda</p>
-                    <a href="{{ route('penduduk.create') }}" class="btn btn-neo-primary mt-3">
-                        <i class="fas fa-plus-circle me-2"></i> Tambah Data Pertama
-                    </a>
-                </div>
+                    <div class="empty-state">
+                        <i class="fas fa-baby"></i>
+                        <h4>Belum Ada Data Kelahiran</h4>
+                        <p>Mulai dengan menambahkan data kelahiran pertama Anda</p>
+                        <a href="{{ route('kelahiran.create') }}" class="btn btn-neo-primary mt-3">
+                            <i class="fas fa-plus-circle me-2"></i> Tambah Data Pertama
+                        </a>
+                    </div>
                 @endif
             </div>
         </div>
@@ -529,5 +529,4 @@
         });
     </script>
 </body>
-
 </html>
