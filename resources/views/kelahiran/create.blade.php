@@ -66,7 +66,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
+            background:
                 linear-gradient(90deg, rgba(102, 126, 234, 0.03) 1px, transparent 1px),
                 linear-gradient(180deg, rgba(102, 126, 234, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
@@ -80,13 +80,13 @@
         }
 
         .form-container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 40px auto;
             background: rgba(255, 255, 255, 0.07);
             backdrop-filter: blur(25px);
             border-radius: 30px;
             border: 1px solid rgba(102, 126, 234, 0.3);
-            box-shadow: 
+            box-shadow:
                 0 25px 50px rgba(0, 0, 0, 0.4),
                 0 0 100px rgba(102, 126, 234, 0.2),
                 inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -101,9 +101,9 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(102, 126, 234, 0.15), 
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(102, 126, 234, 0.15),
                 transparent);
             transition: left 0.8s ease;
         }
@@ -113,7 +113,7 @@
         }
 
         .form-header {
-            background: var(--gradient-primary);
+            background: var(--gradient-warning);
             color: white;
             padding: 50px 40px;
             text-align: center;
@@ -161,6 +161,24 @@
             color: rgba(255, 255, 255, 0.9);
         }
 
+        .user-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--gradient-warning);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 25px rgba(255, 209, 102, 0.4);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .user-avatar i {
+            font-size: 2rem;
+            color: white;
+        }
+
         .form-body {
             padding: 50px;
         }
@@ -190,7 +208,7 @@
             left: 0;
             width: 100px;
             height: 3px;
-            background: var(--gradient-primary);
+            background: var(--gradient-warning);
             border-radius: 3px;
             animation: sectionLine 2s ease-in-out infinite alternate;
         }
@@ -201,7 +219,7 @@
         }
 
         .section-title i {
-            background: var(--gradient-primary);
+            background: var(--gradient-warning);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-size: 1.3rem;
@@ -219,7 +237,7 @@
         }
 
         .form-label i {
-            color: var(--primary-color);
+            color: var(--warning-color);
             font-size: 1rem;
             width: 20px;
             text-align: center;
@@ -241,17 +259,17 @@
         }
 
         .form-control:focus {
-            border-color: var(--primary-color);
-            box-shadow: 
-                0 0 0 4px rgba(102, 126, 234, 0.15),
-                0 8px 30px rgba(102, 126, 234, 0.3);
+            border-color: var(--warning-color);
+            box-shadow:
+                0 0 0 4px rgba(255, 209, 102, 0.15),
+                0 8px 30px rgba(255, 209, 102, 0.3);
             background: rgba(255, 255, 255, 0.12);
             transform: translateY(-3px);
             color: white;
         }
 
         .form-control:hover {
-            border-color: rgba(102, 126, 234, 0.5);
+            border-color: rgba(255, 209, 102, 0.5);
             transform: translateY(-2px);
             box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
         }
@@ -269,10 +287,10 @@
         }
 
         .form-select:focus {
-            border-color: var(--primary-color);
-            box-shadow: 
-                0 0 0 4px rgba(102, 126, 234, 0.15),
-                0 8px 30px rgba(102, 126, 234, 0.3);
+            border-color: var(--warning-color);
+            box-shadow:
+                0 0 0 4px rgba(255, 209, 102, 0.15),
+                0 8px 30px rgba(255, 209, 102, 0.3);
             background: rgba(255, 255, 255, 0.12);
             transform: translateY(-3px);
         }
@@ -282,8 +300,8 @@
             color: white;
         }
 
-        .btn-neo-primary {
-            background: var(--gradient-primary);
+        .btn-neo-warning {
+            background: var(--gradient-warning);
             border: none;
             color: white;
             padding: 18px 40px;
@@ -291,43 +309,43 @@
             font-weight: 800;
             font-size: 1.2rem;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 
-                0 12px 35px rgba(102, 126, 234, 0.5),
-                0 0 60px rgba(102, 126, 234, 0.3);
+            box-shadow:
+                0 12px 35px rgba(255, 209, 102, 0.5),
+                0 0 60px rgba(255, 209, 102, 0.3);
             position: relative;
             overflow: hidden;
             letter-spacing: 0.5px;
         }
 
-        .btn-neo-primary::before {
+        .btn-neo-warning::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(255, 255, 255, 0.4), 
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(255, 255, 255, 0.4),
                 transparent);
             transition: left 0.7s ease;
         }
 
-        .btn-neo-primary:hover::before {
+        .btn-neo-warning:hover::before {
             left: 100%;
         }
 
-        .btn-neo-primary:hover {
+        .btn-neo-warning:hover {
             transform: translateY(-6px) scale(1.05);
-            box-shadow: 
-                0 20px 45px rgba(102, 126, 234, 0.7),
-                0 0 80px rgba(102, 126, 234, 0.4);
+            box-shadow:
+                0 20px 45px rgba(255, 209, 102, 0.7),
+                0 0 80px rgba(255, 209, 102, 0.4);
         }
 
         .btn-neo-secondary {
             background: rgba(255, 255, 255, 0.1);
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
+            border: 2px solid var(--warning-color);
+            color: var(--warning-color);
             padding: 18px 40px;
             border-radius: 18px;
             font-weight: 800;
@@ -339,10 +357,10 @@
         }
 
         .btn-neo-secondary:hover {
-            background: var(--primary-color);
+            background: var(--warning-color);
             color: white;
             transform: translateY(-4px);
-            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
+            box-shadow: 0 12px 35px rgba(255, 209, 102, 0.5);
         }
 
         .form-actions {
@@ -370,9 +388,9 @@
         }
 
         .form-control:focus + .input-icon {
-            color: var(--primary-color);
+            color: var(--warning-color);
             transform: translateY(-50%) scale(1.2);
-            text-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+            text-shadow: 0 0 10px rgba(255, 209, 102, 0.5);
         }
 
         .required-field::after {
@@ -471,7 +489,7 @@
             position: absolute;
             width: 4px;
             height: 4px;
-            background: rgba(102, 126, 234, 0.6);
+            background: rgba(255, 209, 102, 0.6);
             border-radius: 50%;
             animation: particleFloat 12s linear infinite;
         }
@@ -523,25 +541,25 @@
                 margin: 20px auto;
                 border-radius: 25px;
             }
-            
+
             .form-header {
                 padding: 40px 25px;
             }
-            
+
             .form-body {
                 padding: 40px 25px;
             }
-            
+
             .form-title {
                 font-size: 2.2rem;
             }
-            
+
             .form-actions {
                 flex-direction: column;
                 gap: 15px;
             }
-            
-            .btn-neo-primary,
+
+            .btn-neo-warning,
             .btn-neo-secondary {
                 width: 100%;
                 text-align: center;
@@ -559,12 +577,12 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: var(--gradient-primary);
+            background: var(--gradient-warning);
             border-radius: 10px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--gradient-secondary);
+            background: var(--gradient-primary);
         }
     </style>
 </head>
@@ -585,6 +603,9 @@
 
     <div class="form-container">
         <div class="form-header">
+            <div class="user-avatar">
+                <i class="fas fa-baby"></i>
+            </div>
             <h1 class="form-title">Tambah Data Kelahiran</h1>
             <p class="form-subtitle">Isi form berikut untuk menambahkan data kelahiran baru ke sistem</p>
         </div>
@@ -628,7 +649,7 @@
 
             <form action="{{ route('kelahiran.store') }}" method="POST" id="kelahiranForm">
                 @csrf
-                
+
                 <!-- Data Bayi Section -->
                 <div class="form-section">
                     <h3 class="section-title">
@@ -641,9 +662,9 @@
                                     <i class="fas fa-signature"></i>Nama Bayi
                                 </label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control @error('nama_bayi') is-invalid @enderror" 
-                                           id="nama_bayi" name="nama_bayi" 
-                                           value="{{ old('nama_bayi') }}" 
+                                    <input type="text" class="form-control @error('nama_bayi') is-invalid @enderror"
+                                           id="nama_bayi" name="nama_bayi"
+                                           value="{{ old('nama_bayi') }}"
                                            placeholder="Masukkan nama lengkap bayi" required>
                                     <i class="fas fa-baby input-icon"></i>
                                 </div>
@@ -658,8 +679,8 @@
                                     <i class="fas fa-calendar-alt"></i>Tanggal Lahir
                                 </label>
                                 <div class="input-group">
-                                    <input type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror" 
-                                           id="tanggal_lahir" name="tanggal_lahir" 
+                                    <input type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror"
+                                           id="tanggal_lahir" name="tanggal_lahir"
                                            value="{{ old('tanggal_lahir') }}" required>
                                     <i class="fas fa-birthday-cake input-icon"></i>
                                 </div>
@@ -676,7 +697,7 @@
                                 <label for="jenis_kelamin" class="form-label required-field">
                                     <i class="fas fa-venus-mars"></i>Jenis Kelamin
                                 </label>
-                                <select class="form-select @error('jenis_kelamin') is-invalid @enderror" 
+                                <select class="form-select @error('jenis_kelamin') is-invalid @enderror"
                                         id="jenis_kelamin" name="jenis_kelamin" required>
                                     <option value="">Pilih Jenis Kelamin</option>
                                     <option value="L" {{ old('jenis_kelamin') == 'L' ? 'selected' : '' }}>Laki-laki</option>
@@ -692,7 +713,7 @@
                                 <label for="orangtua_id" class="form-label required-field">
                                     <i class="fas fa-users"></i>Orang Tua
                                 </label>
-                                <select class="form-select @error('orangtua_id') is-invalid @enderror" 
+                                <select class="form-select @error('orangtua_id') is-invalid @enderror"
                                         id="orangtua_id" name="orangtua_id" required>
                                     <option value="">Pilih Orang Tua</option>
                                     @foreach($orangtua as $ortu)
@@ -721,9 +742,9 @@
                                     <i class="fas fa-user"></i>Nama Ayah
                                 </label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control @error('nama_ayah') is-invalid @enderror" 
-                                           id="nama_ayah" name="nama_ayah" 
-                                           value="{{ old('nama_ayah') }}" 
+                                    <input type="text" class="form-control @error('nama_ayah') is-invalid @enderror"
+                                           id="nama_ayah" name="nama_ayah"
+                                           value="{{ old('nama_ayah') }}"
                                            placeholder="Masukkan nama ayah" required>
                                     <i class="fas fa-male input-icon"></i>
                                 </div>
@@ -738,9 +759,9 @@
                                     <i class="fas fa-user"></i>Nama Ibu
                                 </label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control @error('nama_ibu') is-invalid @enderror" 
-                                           id="nama_ibu" name="nama_ibu" 
-                                           value="{{ old('nama_ibu') }}" 
+                                    <input type="text" class="form-control @error('nama_ibu') is-invalid @enderror"
+                                           id="nama_ibu" name="nama_ibu"
+                                           value="{{ old('nama_ibu') }}"
                                            placeholder="Masukkan nama ibu" required>
                                     <i class="fas fa-female input-icon"></i>
                                 </div>
@@ -764,8 +785,8 @@
                                     <i class="fas fa-map-marker-alt"></i>Tempat Lahir
                                 </label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control @error('tempat_lahir') is-invalid @enderror" 
-                                           id="tempat_lahir" name="tempat_lahir" 
+                                    <input type="text" class="form-control @error('tempat_lahir') is-invalid @enderror"
+                                           id="tempat_lahir" name="tempat_lahir"
                                            value="{{ old('tempat_lahir') }}"
                                            placeholder="Masukkan tempat lahir">
                                     <i class="fas fa-hospital input-icon"></i>
@@ -781,8 +802,8 @@
                                     <i class="fas fa-file-alt"></i>No Akte Kelahiran
                                 </label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control @error('no_akte') is-invalid @enderror" 
-                                           id="no_akte" name="no_akte" 
+                                    <input type="text" class="form-control @error('no_akte') is-invalid @enderror"
+                                           id="no_akte" name="no_akte"
                                            value="{{ old('no_akte') }}"
                                            placeholder="Masukkan nomor akte">
                                     <i class="fas fa-certificate input-icon"></i>
@@ -801,8 +822,8 @@
                                     <i class="fas fa-weight"></i>Berat Badan (kg)
                                 </label>
                                 <div class="input-group">
-                                    <input type="number" step="0.01" class="form-control @error('berat_badan') is-invalid @enderror" 
-                                           id="berat_badan" name="berat_badan" 
+                                    <input type="number" step="0.01" class="form-control @error('berat_badan') is-invalid @enderror"
+                                           id="berat_badan" name="berat_badan"
                                            value="{{ old('berat_badan') }}"
                                            placeholder="Contoh: 3.25">
                                     <i class="fas fa-weight input-icon"></i>
@@ -818,8 +839,8 @@
                                     <i class="fas fa-ruler-vertical"></i>Panjang Badan (cm)
                                 </label>
                                 <div class="input-group">
-                                    <input type="number" step="0.01" class="form-control @error('panjang_badan') is-invalid @enderror" 
-                                           id="panjang_badan" name="panjang_badan" 
+                                    <input type="number" step="0.01" class="form-control @error('panjang_badan') is-invalid @enderror"
+                                           id="panjang_badan" name="panjang_badan"
                                            value="{{ old('panjang_badan') }}"
                                            placeholder="Contoh: 48.5">
                                     <i class="fas fa-ruler input-icon"></i>
@@ -835,8 +856,8 @@
                         <label for="alamat" class="form-label">
                             <i class="fas fa-home"></i>Alamat
                         </label>
-                        <textarea class="form-control @error('alamat') is-invalid @enderror" 
-                                  id="alamat" name="alamat" rows="4" 
+                        <textarea class="form-control @error('alamat') is-invalid @enderror"
+                                  id="alamat" name="alamat" rows="4"
                                   placeholder="Masukkan alamat lengkap">{{ old('alamat') }}</textarea>
                         @error('alamat')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -846,7 +867,7 @@
 
                 <!-- Form Actions -->
                 <div class="form-actions">
-                    <button type="submit" class="btn btn-neo-primary" id="submitBtn">
+                    <button type="submit" class="btn btn-neo-warning" id="submitBtn">
                         <i class="fas fa-save me-2"></i>Simpan Data
                     </button>
                     <a href="{{ route('kelahiran.index') }}" class="btn btn-neo-secondary">
@@ -932,6 +953,19 @@
                     }
                 }, 5000);
             });
+
+            // Add staggered animation to form sections
+            const formSections = document.querySelectorAll('.form-section');
+            formSections.forEach((section, index) => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+
+                setTimeout(() => {
+                    section.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }, index * 200 + 300);
+            });
         });
 
         // Add hover effects
@@ -939,7 +973,7 @@
             element.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-2px)';
             });
-            
+
             element.addEventListener('mouseleave', function() {
                 if (document.activeElement !== this) {
                     this.style.transform = 'translateY(0)';

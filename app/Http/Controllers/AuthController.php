@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Validator;
 class AuthController extends Controller
 {
     // Show Login Form
-    public function showLogin()
+    public function index()
     {
-        return view('auth.login');
+        return view('login-form');
     }
 
     // Process Login
@@ -46,7 +46,7 @@ class AuthController extends Controller
     // Show Register Form
     public function showRegister()
     {
-        return view('auth.register');
+        return view('register');
     }
 
     // Process Register

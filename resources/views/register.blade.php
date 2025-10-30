@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login kamu dulu</title>
+    <title>Register - Buat Akun Baru</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* (Styles tetap sama seperti sebelumnya) */
         * {
             margin: 0;
             padding: 0;
@@ -63,14 +62,14 @@
             }
         }
 
-        .login-container {
+        .register-container {
             background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(15px);
             border-radius: 20px;
             border: 1px solid rgba(102, 126, 234, 0.3);
             padding: 45px 40px;
             width: 100%;
-            max-width: 420px;
+            max-width: 450px;
             position: relative;
             z-index: 1;
             box-shadow:
@@ -80,7 +79,7 @@
             transition: all 0.3s ease;
         }
 
-        .login-container:hover {
+        .register-container:hover {
             transform: translateY(-5px);
             box-shadow:
                 0 25px 50px rgba(0, 0, 0, 0.5),
@@ -88,7 +87,7 @@
                 inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
-        .login-container::before {
+        .register-container::before {
             content: '';
             position: absolute;
             top: -2px;
@@ -102,25 +101,25 @@
             transition: opacity 0.4s ease;
         }
 
-        .login-container:hover::before {
+        .register-container:hover::before {
             opacity: 0.4;
         }
 
         .logo {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
 
         .logo-icon {
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #4ecdc4, #667eea);
             border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 20px;
-            box-shadow: 0 12px 25px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 12px 25px rgba(78, 205, 196, 0.4);
             position: relative;
             overflow: hidden;
         }
@@ -163,7 +162,7 @@
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .input-field {
@@ -187,9 +186,9 @@
         }
 
         .input-field input:focus {
-            border-color: rgba(102, 126, 234, 0.8);
+            border-color: rgba(78, 205, 196, 0.8);
             background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+            box-shadow: 0 0 0 4px rgba(78, 205, 196, 0.15);
             transform: translateY(-2px);
         }
 
@@ -204,14 +203,14 @@
         }
 
         .input-field input:focus + i {
-            color: #667eea;
+            color: #4ecdc4;
             transform: translateY(-50%) scale(1.1);
         }
 
-        .btn-login {
+        .btn-register {
             width: 100%;
             padding: 16px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #4ecdc4, #667eea);
             color: white;
             border: none;
             border-radius: 12px;
@@ -222,18 +221,19 @@
             position: relative;
             overflow: hidden;
             letter-spacing: 0.5px;
+            margin-top: 10px;
         }
 
-        .btn-login:hover {
+        .btn-register:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(102, 126, 234, 0.5);
+            box-shadow: 0 12px 25px rgba(78, 205, 196, 0.5);
         }
 
-        .btn-login:active {
+        .btn-register:active {
             transform: translateY(-1px);
         }
 
-        .btn-login::after {
+        .btn-register::after {
             content: '';
             position: absolute;
             top: -50%;
@@ -245,7 +245,7 @@
             transition: all 0.3s ease;
         }
 
-        .btn-login:hover::after {
+        .btn-register:hover::after {
             transform: translateX(100%) translateY(100%) rotate(45deg);
         }
 
@@ -283,11 +283,11 @@
         }
 
         .requirements {
-            margin-top: 30px;
+            margin-top: 25px;
             padding: 20px;
             background: rgba(255, 255, 255, 0.08);
             border-radius: 12px;
-            border-left: 4px solid #667eea;
+            border-left: 4px solid #4ecdc4;
             backdrop-filter: blur(10px);
         }
 
@@ -316,7 +316,7 @@
 
         .requirements li:before {
             content: "›";
-            color: #667eea;
+            color: #4ecdc4;
             position: absolute;
             left: 0;
             font-weight: bold;
@@ -325,7 +325,7 @@
 
         .footer {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 25px;
             color: rgba(255, 255, 255, 0.5);
             font-size: 12px;
             padding-top: 20px;
@@ -338,7 +338,7 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background: linear-gradient(90deg, transparent, #667eea, #764ba2, transparent);
+            background: linear-gradient(90deg, transparent, #4ecdc4, #667eea, transparent);
             animation: scan 3.5s linear infinite;
             opacity: 0;
         }
@@ -357,7 +357,7 @@
             }
         }
 
-        .login-container:hover .scan-line {
+        .register-container:hover .scan-line {
             animation: scan 2.5s linear infinite;
         }
 
@@ -379,8 +379,8 @@
         .loading-spinner {
             width: 50px;
             height: 50px;
-            border: 4px solid rgba(102, 126, 234, 0.3);
-            border-top: 4px solid #667eea;
+            border: 4px solid rgba(78, 205, 196, 0.3);
+            border-top: 4px solid #4ecdc4;
             border-radius: 50%;
             animation: spin 1s linear infinite;
             margin-bottom: 20px;
@@ -391,23 +391,30 @@
             100% { transform: rotate(360deg); }
         }
 
-        .register-link {
+        .login-link {
             text-align: center;
             margin-top: 20px;
             color: rgba(255, 255, 255, 0.7);
             font-size: 14px;
         }
 
-        .register-link a {
-            color: #667eea;
+        .login-link a {
+            color: #4ecdc4;
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s ease;
         }
 
-        .register-link a:hover {
-            color: #764ba2;
+        .login-link a:hover {
+            color: #667eea;
             text-decoration: underline;
+        }
+
+        .password-requirements {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 5px;
+            padding-left: 50px;
         }
     </style>
 </head>
@@ -421,24 +428,27 @@
     <!-- Loading Overlay -->
     <div class="loading-overlay" id="loadingOverlay">
         <div class="loading-spinner"></div>
-        <p>Mengarahkan ke Dashboard...</p>
+        <p>Membuat akun baru...</p>
     </div>
 
-    <!-- Compact Login Container -->
-    <div class="login-container">
+    <!-- Register Container -->
+    <div class="register-container">
         <div class="scan-line"></div>
 
         <div class="logo">
             <div class="logo-icon">
-                <i class="fas fa-key"></i>
+                <i class="fas fa-user-plus"></i>
             </div>
-            <h1>Login dulu kamu</h1>
-            <p>pengamanan yang aman insyaallah</p>
+            <h1>Buat Akun Baru</h1>
+            <p>Bergabung dengan sistem kami</p>
         </div>
 
-        @if(session('error'))
+        @if($errors->any())
             <div class="alert alert-error">
-                <i class="fas fa-exclamation-circle"></i> {{ session('error') }}
+                <i class="fas fa-exclamation-circle"></i>
+                @foreach($errors->all() as $error)
+                    {{ $error }}<br>
+                @endforeach
             </div>
         @endif
 
@@ -448,38 +458,55 @@
             </div>
         @endif
 
-        <form method="POST" action="/auth/login" id="loginForm">
+        <form method="POST" action="/register" id="registerForm">
             @csrf
             <div class="form-group">
                 <div class="input-field">
-                    <input type="email" name="email" placeholder="Enter your email" required value="{{ old('email') }}">
+                    <input type="text" name="name" placeholder="Full name" required value="{{ old('name') }}">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-field">
+                    <input type="email" name="email" placeholder="Email address" required value="{{ old('email') }}">
                     <i class="fas fa-envelope"></i>
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="input-field">
-                    <input type="password" name="password" placeholder="Enter your password" required>
+                    <input type="password" name="password" id="password" placeholder="Password" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="password-requirements">
+                    Minimal 6 karakter
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-field">
+                    <input type="password" name="password_confirmation" placeholder="Confirm password" required>
                     <i class="fas fa-lock"></i>
                 </div>
             </div>
 
-            <button type="submit" class="btn-login">
-                <i class="fas fa-sign-in-alt"></i> ACCESS SYSTEM
+            <button type="submit" class="btn-register">
+                <i class="fas fa-user-plus"></i> CREATE ACCOUNT
             </button>
         </form>
 
-        <div class="register-link">
-            Belum punya akun? <a href="/register">Daftar di sini</a>
+        <div class="login-link">
+            Sudah punya akun? <a href="/auth/login">Login di sini</a>
         </div>
 
         <div class="requirements">
-            <h4><i class="fas fa-shield-alt"></i> AUTHENTICATION RULES</h4>
+            <h4><i class="fas fa-shield-alt"></i> REGISTRATION REQUIREMENTS</h4>
             <ul>
-                <li>Gunakan email yang valid untuk login</li>
-                <li>Password: minimal 6 karakter</li>
-                <li>Pastikan email sudah terdaftar</li>
-                <li>Harus cocok yaa</li>
+                <li>Nama lengkap harus diisi</li>
+                <li>Email harus valid dan belum terdaftar</li>
+                <li>Password minimal 6 karakter</li>
+                <li>Konfirmasi password harus sama</li>
             </ul>
         </div>
 
@@ -516,8 +543,23 @@
             });
         });
 
+        // Password confirmation validation
+        const password = document.getElementById('password');
+        const confirmPassword = document.querySelector('input[name="password_confirmation"]');
+
+        function validatePassword() {
+            if (password.value !== confirmPassword.value) {
+                confirmPassword.style.borderColor = 'rgba(231, 76, 60, 0.8)';
+            } else {
+                confirmPassword.style.borderColor = 'rgba(46, 204, 113, 0.8)';
+            }
+        }
+
+        password.addEventListener('input', validatePassword);
+        confirmPassword.addEventListener('input', validatePassword);
+
         // Form submission handler
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
             const loadingOverlay = document.getElementById('loadingOverlay');
             loadingOverlay.style.display = 'flex';
         });

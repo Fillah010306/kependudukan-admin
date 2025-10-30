@@ -197,7 +197,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
+            background:
                 linear-gradient(90deg, rgba(102, 126, 234, 0.03) 1px, transparent 1px),
                 linear-gradient(180deg, rgba(102, 126, 234, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
@@ -206,7 +206,7 @@
         }
 
         [data-theme="light"] .cyber-grid {
-            background: 
+            background:
                 linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
                 linear-gradient(180deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
         }
@@ -232,7 +232,7 @@
             backdrop-filter: blur(25px);
             border-radius: 25px;
             border: 1px solid var(--card-border);
-            box-shadow: 
+            box-shadow:
                 0 20px 40px var(--shadow-color),
                 0 0 80px rgba(102, 126, 234, 0.1),
                 inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -243,7 +243,7 @@
         [data-theme="light"] .header {
             background: rgba(255, 255, 255, 0.9);
             border: 1px solid rgba(59, 130, 246, 0.2);
-            box-shadow: 
+            box-shadow:
                 0 20px 40px var(--shadow-color),
                 0 0 60px rgba(59, 130, 246, 0.1);
         }
@@ -255,9 +255,9 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(102, 126, 234, 0.2), 
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(102, 126, 234, 0.2),
                 transparent);
             transition: left 0.6s ease;
         }
@@ -310,7 +310,7 @@
             cursor: pointer;
             font-weight: 700;
             transition: all 0.4s ease;
-            box-shadow: 
+            box-shadow:
                 0 8px 25px rgba(102, 126, 234, 0.4),
                 0 0 30px rgba(102, 126, 234, 0.2);
             position: relative;
@@ -327,9 +327,9 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(255, 255, 255, 0.3), 
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
                 transparent);
             transition: left 0.5s ease;
         }
@@ -340,7 +340,7 @@
 
         .nav-btn:hover {
             transform: translateY(-5px) scale(1.05);
-            box-shadow: 
+            box-shadow:
                 0 15px 35px rgba(102, 126, 234, 0.6),
                 0 0 50px rgba(102, 126, 234, 0.3);
         }
@@ -355,7 +355,7 @@
             cursor: pointer;
             font-weight: 700;
             transition: all 0.4s ease;
-            box-shadow: 
+            box-shadow:
                 0 8px 25px rgba(239, 71, 111, 0.4),
                 0 0 30px rgba(239, 71, 111, 0.2);
             position: relative;
@@ -372,9 +372,9 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(255, 255, 255, 0.3), 
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
                 transparent);
             transition: left 0.5s ease;
         }
@@ -385,7 +385,7 @@
 
         .logout-btn:hover {
             transform: translateY(-5px) scale(1.05);
-            box-shadow: 
+            box-shadow:
                 0 15px 35px rgba(239, 71, 111, 0.6),
                 0 0 50px rgba(239, 71, 111, 0.3);
         }
@@ -413,7 +413,7 @@
             cursor: pointer;
             transition: all 0.4s ease;
             backdrop-filter: blur(10px);
-            box-shadow: 
+            box-shadow:
                 0 4px 15px var(--shadow-color),
                 inset 0 2px 5px rgba(255, 255, 255, 0.1);
         }
@@ -428,7 +428,7 @@
             background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
             border-radius: 50%;
             transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            box-shadow: 
+            box-shadow:
                 0 2px 10px rgba(0, 0, 0, 0.3),
                 0 0 15px rgba(102, 126, 234, 0.4);
             display: flex;
@@ -482,7 +482,7 @@
             margin-bottom: 30px;
             backdrop-filter: blur(15px);
             border-left: 6px solid #2ecc71;
-            box-shadow: 
+            box-shadow:
                 0 10px 30px rgba(39, 174, 96, 0.3),
                 0 0 40px rgba(39, 174, 96, 0.1);
             animation: slideIn 0.6s ease-out;
@@ -511,7 +511,7 @@
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
-            box-shadow: 
+            box-shadow:
                 0 15px 35px var(--shadow-color),
                 inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
@@ -546,7 +546,7 @@
             transform: translateY(-12px) scale(1.02);
             background: rgba(255, 255, 255, 0.12);
             border-color: rgba(102, 126, 234, 0.6);
-            box-shadow: 
+            box-shadow:
                 0 25px 50px var(--shadow-color),
                 0 0 60px rgba(102, 126, 234, 0.2);
         }
@@ -606,7 +606,7 @@
             padding: 30px;
             border-radius: 20px;
             border: 1px solid var(--card-border);
-            box-shadow: 
+            box-shadow:
                 0 15px 35px var(--shadow-color),
                 inset 0 1px 0 rgba(255, 255, 255, 0.1);
             position: relative;
@@ -615,7 +615,7 @@
 
         .chart-container:hover {
             transform: translateY(-5px);
-            box-shadow: 
+            box-shadow:
                 0 20px 45px var(--shadow-color),
                 0 0 70px rgba(102, 126, 234, 0.15);
         }
@@ -729,9 +729,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(255, 255, 255, 0.3), 
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
                 transparent);
             animation: shimmer 2s infinite;
         }
@@ -844,7 +844,7 @@
             padding: 35px;
             border-radius: 20px;
             border: 1px solid var(--card-border);
-            box-shadow: 
+            box-shadow:
                 0 15px 35px var(--shadow-color),
                 inset 0 1px 0 rgba(255, 255, 255, 0.1);
             position: relative;
@@ -867,7 +867,7 @@
             padding: 35px;
             border-radius: 20px;
             border: 1px solid var(--card-border);
-            box-shadow: 
+            box-shadow:
                 0 15px 35px var(--shadow-color),
                 inset 0 1px 0 rgba(255, 255, 255, 0.1);
             position: relative;
@@ -972,9 +972,9 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(102, 126, 234, 0.1), 
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(102, 126, 234, 0.1),
                 transparent);
             transition: left 0.6s ease;
         }
@@ -1062,12 +1062,12 @@
 
         @keyframes glow {
             from {
-                box-shadow: 
+                box-shadow:
                     0 0 20px rgba(102, 126, 234, 0.4),
                     0 0 40px rgba(102, 126, 234, 0.2);
             }
             to {
-                box-shadow: 
+                box-shadow:
                     0 0 30px rgba(102, 126, 234, 0.6),
                     0 0 60px rgba(102, 126, 234, 0.3);
             }
@@ -1078,7 +1078,7 @@
             .charts-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .content-grid {
                 grid-template-columns: 1fr;
             }
@@ -1088,34 +1088,34 @@
             .content-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .header {
                 flex-direction: column;
                 gap: 20px;
                 text-align: center;
             }
-            
+
             .header-actions {
                 flex-direction: column;
                 width: 100%;
             }
-            
+
             .stats-grid {
                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             }
-            
+
             .header h1 {
                 font-size: 28px;
             }
-            
+
             .quick-actions {
                 grid-template-columns: 1fr;
             }
-            
+
             .chart-wrapper {
                 height: 250px;
             }
-            
+
             .dashboard-container {
                 padding: 15px;
             }
@@ -1125,11 +1125,11 @@
             .stats-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .chart-wrapper {
                 height: 200px;
             }
-            
+
             .chart-container {
                 padding: 20px;
             }
@@ -1158,7 +1158,7 @@
                     <div class="sidebar-title">Sistem Kependudukan</div>
                     <div class="sidebar-subtitle">Administrator Panel</div>
                 </div>
-                
+
                 <ul class="sidebar-menu">
                     <li class="sidebar-item">
                         <a href="/dashboard" class="sidebar-link active">
@@ -1168,7 +1168,7 @@
                             <div class="sidebar-text">Dashboard</div>
                         </a>
                     </li>
-                    
+
                     <li class="sidebar-item">
                         <a href="{{ route('penduduk.index') }}" class="sidebar-link">
                             <div class="sidebar-icon">
@@ -1177,7 +1177,7 @@
                             <div class="sidebar-text">Data Penduduk</div>
                         </a>
                     </li>
-                    
+
                     <li class="sidebar-item">
                         <a href="{{ route('kelahiran.index') }}" class="sidebar-link">
                             <div class="sidebar-icon">
@@ -1187,25 +1187,16 @@
                             <div class="sidebar-badge">New</div>
                         </a>
                     </li>
-                    
+
                     <li class="sidebar-item">
-                        <a href="{{ route('kelahiran.create') }}" class="sidebar-link">
-                            <div class="sidebar-icon">
-                                <i class="fas fa-plus-circle"></i>
-                            </div>
-                            <div class="sidebar-text">Tambah Kelahiran</div>
-                        </a>
-                    </li>
-                    
-                    <li class="sidebar-item">
-                        <a href="#" class="sidebar-link">
+                        <a href="{{ route('orangtua.index') }}" class="sidebar-link">
                             <div class="sidebar-icon">
                                 <i class="fas fa-user-friends"></i>
                             </div>
                             <div class="sidebar-text">Data Orang Tua</div>
                         </a>
                     </li>
-                    
+
                     <li class="sidebar-item">
                         <a href="#" class="sidebar-link">
                             <div class="sidebar-icon">
@@ -1214,7 +1205,7 @@
                             <div class="sidebar-text">Laporan</div>
                         </a>
                     </li>
-                    
+
                     <li class="sidebar-item">
                         <a href="#" class="sidebar-link">
                             <div class="sidebar-icon">
@@ -1236,7 +1227,7 @@
                         <p class="welcome">Selamat Datang di Sistem Kependudukan</p>
                         <h1>Dashboard Administrator</h1>
                     </div>
-                    
+
                     <div class="header-actions">
                         <!-- Ghost Toggle Switch -->
                         <div class="theme-toggle">
@@ -1246,7 +1237,7 @@
                         <a href="{{ route('penduduk.index') }}" class="nav-btn">
                             <i class="fas fa-users"></i> Kelola Data
                         </a>
-                        <a href="/auth/logout" class="logout-btn" onclick="return confirm('Yakin ingin logout?')">
+                        <a href="/auth" class="logout-btn" onclick="return confirm('Yakin ingin logout?')">
                             <i class="fas fa-sign-out-alt"></i> Logout
                         </a>
                     </div>
@@ -1310,13 +1301,13 @@
                             <i class="fas fa-chart-pie"></i>
                             Distribusi Gender
                         </h3>
-                        
+
                         <!-- Donut Chart -->
                         <div class="donut-chart">
                             <div class="donut-segment" style="background: conic-gradient(#667eea 0% {{ $persentaseLaki ?? 65 }}%, #764ba2 {{ $persentaseLaki ?? 65 }}% 100%);"></div>
                             <div class="donut-center">{{ $persentaseLaki ?? 65 }}%</div>
                         </div>
-                        
+
                         <!-- Progress Stats -->
                         <div class="progress-stats">
                             <div class="progress-item">
@@ -1385,7 +1376,7 @@
                         <div class="chart-wrapper">
                             <canvas id="ageChart"></canvas>
                         </div>
-                        
+
                         <!-- Age Stats -->
                         <div class="progress-stats">
                             @if(isset($distribusiUsia) && count($distribusiUsia) > 0)
@@ -1423,13 +1414,7 @@
                         <p>Monitoring menunjukkan distribusi penduduk berdasarkan wilayah dengan akurasi data mencapai 99.8%. Sistem telah memproses <strong>{{ $totalDokumen ?? 0 }} dokumen</strong> pencatatan sipil dengan efisiensi tinggi.</p>
 
                         <!-- Quick Actions -->
-                        <div class="quick-actions">
-                            <a href="{{ route('penduduk.create') }}" class="action-btn">
-                                <div class="action-icon">
-                                    <i class="fas fa-user-plus"></i>
-                                </div>
-                                <div class="action-text">Tambah Data</div>
-                            </a>
+
                             <a href="{{ route('penduduk.index') }}" class="action-btn">
                                 <div class="action-icon">
                                     <i class="fas fa-users"></i>
@@ -1480,7 +1465,7 @@
         // Theme Toggle Functionality
         const themeToggle = document.getElementById('theme-toggle');
         const currentTheme = localStorage.getItem('theme') || 'dark';
-        
+
         // Set initial theme
         document.documentElement.setAttribute('data-theme', currentTheme);
         themeToggle.checked = currentTheme === 'light';
@@ -1513,17 +1498,17 @@
         function updateDateTime() {
             const now = new Date();
             const dateTimeElement = document.getElementById('currentDateTime');
-            
-            const options = { 
-                weekday: 'long', 
-                year: 'numeric', 
-                month: 'long', 
+
+            const options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
                 day: 'numeric',
                 hour: '2-digit',
                 minute: '2-digit',
                 second: '2-digit'
             };
-            
+
             const dateTimeString = now.toLocaleDateString('id-ID', options);
             dateTimeElement.textContent = dateTimeString;
         }
@@ -1611,7 +1596,7 @@
             card.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-12px) scale(1.02)';
             });
-            
+
             card.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0) scale(1)';
             });
@@ -1620,7 +1605,7 @@
         // Initialize effects
         createParticles();
         initializeCharts();
-        
+
         // Update waktu setiap detik
         setInterval(updateDateTime, 1000);
         updateDateTime(); // Initial call
