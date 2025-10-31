@@ -1,11 +1,123 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Kependudukan - Neo System</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow:
+                0 8px 25px rgba(37, 211, 102, 0.4),
+                0 0 30px rgba(37, 211, 102, 0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            animation: pulse-whatsapp 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-8px) scale(1.1);
+            box-shadow:
+                0 15px 35px rgba(37, 211, 102, 0.6),
+                0 0 50px rgba(37, 211, 102, 0.3);
+            background: linear-gradient(135deg, #128C7E, #25D366);
+        }
+
+        .whatsapp-float::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.3),
+                    transparent);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+
+        .whatsapp-float:hover::before {
+            opacity: 1;
+        }
+
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 70px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .whatsapp-float:hover .whatsapp-tooltip {
+            opacity: 1;
+            right: 75px;
+        }
+
+        @keyframes pulse-whatsapp {
+            0% {
+                box-shadow:
+                    0 8px 25px rgba(37, 211, 102, 0.4),
+                    0 0 30px rgba(37, 211, 102, 0.2);
+            }
+
+            50% {
+                box-shadow:
+                    0 8px 30px rgba(37, 211, 102, 0.6),
+                    0 0 40px rgba(37, 211, 102, 0.3);
+            }
+
+            100% {
+                box-shadow:
+                    0 8px 25px rgba(37, 211, 102, 0.4),
+                    0 0 30px rgba(37, 211, 102, 0.2);
+            }
+        }
+
+        /* Responsive WhatsApp Button */
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 26px;
+            }
+
+            .whatsapp-tooltip {
+                display: none;
+            }
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -181,13 +293,40 @@
             animation: float 6s ease-in-out infinite;
         }
 
-        .shape-1 { width: 300px; height: 300px; top: 10%; left: 5%; animation-delay: 0s; }
-        .shape-2 { width: 200px; height: 200px; top: 60%; right: 10%; animation-delay: 2s; }
-        .shape-3 { width: 150px; height: 150px; bottom: 20%; left: 20%; animation-delay: 4s; }
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .shape-3 {
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
         }
 
         /* Cyber Grid */
@@ -212,8 +351,13 @@
         }
 
         @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(50px, 50px);
+            }
         }
 
         .dashboard-container {
@@ -256,9 +400,9 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg,
-                transparent,
-                rgba(102, 126, 234, 0.2),
-                transparent);
+                    transparent,
+                    rgba(102, 126, 234, 0.2),
+                    transparent);
             transition: left 0.6s ease;
         }
 
@@ -328,9 +472,9 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg,
-                transparent,
-                rgba(255, 255, 255, 0.3),
-                transparent);
+                    transparent,
+                    rgba(255, 255, 255, 0.3),
+                    transparent);
             transition: left 0.5s ease;
         }
 
@@ -373,9 +517,9 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg,
-                transparent,
-                rgba(255, 255, 255, 0.3),
-                transparent);
+                    transparent,
+                    rgba(255, 255, 255, 0.3),
+                    transparent);
             transition: left 0.5s ease;
         }
 
@@ -438,13 +582,13 @@
             font-size: 14px;
         }
 
-        .toggle-input:checked + .toggle-label::before {
+        .toggle-input:checked+.toggle-label::before {
             transform: translateX(40px);
             background: linear-gradient(135deg, #f59e0b, #d97706);
             content: '☀️';
         }
 
-        .toggle-input:not(:checked) + .toggle-label::before {
+        .toggle-input:not(:checked)+.toggle-label::before {
             content: '🌙';
         }
 
@@ -461,14 +605,14 @@
             transition: all 0.3s ease;
         }
 
-        .toggle-input:checked + .toggle-label::after {
+        .toggle-input:checked+.toggle-label::after {
             content: 'Dark';
             left: 10px;
             right: auto;
             opacity: 1;
         }
 
-        .toggle-input:not(:checked) + .toggle-label::after {
+        .toggle-input:not(:checked)+.toggle-label::after {
             opacity: 1;
         }
 
@@ -489,8 +633,15 @@
         }
 
         @keyframes slideIn {
-            from { transform: translateY(-20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         /* Statistics Grid */
@@ -730,15 +881,20 @@
             right: 0;
             bottom: 0;
             background: linear-gradient(90deg,
-                transparent,
-                rgba(255, 255, 255, 0.3),
-                transparent);
+                    transparent,
+                    rgba(255, 255, 255, 0.3),
+                    transparent);
             animation: shimmer 2s infinite;
         }
 
         @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
         }
 
         /* Donut Chart */
@@ -973,9 +1129,9 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg,
-                transparent,
-                rgba(102, 126, 234, 0.1),
-                transparent);
+                    transparent,
+                    rgba(102, 126, 234, 0.1),
+                    transparent);
             transition: left 0.6s ease;
         }
 
@@ -1043,12 +1199,15 @@
                 transform: translateY(100vh) translateX(0) rotate(0deg);
                 opacity: 0;
             }
+
             10% {
                 opacity: 1;
             }
+
             90% {
                 opacity: 1;
             }
+
             100% {
                 transform: translateY(-100px) translateX(100px) rotate(360deg);
                 opacity: 0;
@@ -1066,6 +1225,7 @@
                     0 0 20px rgba(102, 126, 234, 0.4),
                     0 0 40px rgba(102, 126, 234, 0.2);
             }
+
             to {
                 box-shadow:
                     0 0 30px rgba(102, 126, 234, 0.6),
@@ -1136,6 +1296,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Background Animation -->
     <div class="bg-animation">
@@ -1236,14 +1397,14 @@
                         <a href="{{ route('penduduk.index') }}" class="nav-btn">
                             <i class="fas fa-users"></i> Kelola Data
                         </a>
-                        <a href="/auth" class="logout-btn" onclick="return confirm('Yakin ingin logout?')">
+                        <a href="/" class="logout-btn" onclick="return confirm('Yakin ingin logout?')">
                             <i class="fas fa-sign-out-alt"></i> Logout
                         </a>
                     </div>
                 </div>
 
                 <!-- Alert Session -->
-                @if(session('success'))
+                @if (session('success'))
                     <div class="alert">
                         <i class="fas fa-check-circle"></i> {{ session('success') }}
                     </div>
@@ -1303,7 +1464,9 @@
 
                         <!-- Donut Chart -->
                         <div class="donut-chart">
-                            <div class="donut-segment" style="background: conic-gradient(#667eea 0% {{ $persentaseLaki ?? 65 }}%, #764ba2 {{ $persentaseLaki ?? 65 }}% 100%);"></div>
+                            <div class="donut-segment"
+                                style="background: conic-gradient(#667eea 0% {{ $persentaseLaki ?? 65 }}%, #764ba2 {{ $persentaseLaki ?? 65 }}% 100%);">
+                            </div>
                             <div class="donut-center">{{ $persentaseLaki ?? 65 }}%</div>
                         </div>
 
@@ -1315,7 +1478,9 @@
                                     <span>{{ $persentaseLaki ?? 65 }}%</span>
                                 </div>
                                 <div class="progress-bar">
-                                    <div class="progress-fill" style="width: {{ $persentaseLaki ?? 65 }}%; background: linear-gradient(90deg, #667eea, #764ba2);"></div>
+                                    <div class="progress-fill"
+                                        style="width: {{ $persentaseLaki ?? 65 }}%; background: linear-gradient(90deg, #667eea, #764ba2);">
+                                    </div>
                                 </div>
                             </div>
                             <div class="progress-item">
@@ -1324,7 +1489,9 @@
                                     <span>{{ $persentasePerempuan ?? 35 }}%</span>
                                 </div>
                                 <div class="progress-bar">
-                                    <div class="progress-fill" style="width: {{ $persentasePerempuan ?? 35 }}%; background: linear-gradient(90deg, #ef476f, #ff6b6b);"></div>
+                                    <div class="progress-fill"
+                                        style="width: {{ $persentasePerempuan ?? 35 }}%; background: linear-gradient(90deg, #ef476f, #ff6b6b);">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1340,17 +1507,17 @@
                             Aktivitas Terbaru
                         </h3>
                         <div class="timeline">
-                            @if(isset($aktivitasTerbaru) && count($aktivitasTerbaru) > 0)
-                                @foreach($aktivitasTerbaru as $aktivitas)
-                                <div class="timeline-item">
-                                    <div class="timeline-icon">
-                                        <i class="fas {{ $aktivitas['icon'] }}"></i>
+                            @if (isset($aktivitasTerbaru) && count($aktivitasTerbaru) > 0)
+                                @foreach ($aktivitasTerbaru as $aktivitas)
+                                    <div class="timeline-item">
+                                        <div class="timeline-icon">
+                                            <i class="fas {{ $aktivitas['icon'] }}"></i>
+                                        </div>
+                                        <div class="timeline-content">
+                                            <div class="timeline-title">{{ $aktivitas['judul'] }}</div>
+                                            <div class="timeline-time">{{ $aktivitas['waktu'] }}</div>
+                                        </div>
                                     </div>
-                                    <div class="timeline-content">
-                                        <div class="timeline-title">{{ $aktivitas['judul'] }}</div>
-                                        <div class="timeline-time">{{ $aktivitas['waktu'] }}</div>
-                                    </div>
-                                </div>
                                 @endforeach
                             @else
                                 <div class="timeline-item">
@@ -1378,17 +1545,19 @@
 
                         <!-- Age Stats -->
                         <div class="progress-stats">
-                            @if(isset($distribusiUsia) && count($distribusiUsia) > 0)
-                                @foreach($distribusiUsia as $usia)
-                                <div class="progress-item">
-                                    <div class="progress-label">
-                                        <span>{{ $usia['range'] }}</span>
-                                        <span>{{ $usia['persentase'] }}%</span>
+                            @if (isset($distribusiUsia) && count($distribusiUsia) > 0)
+                                @foreach ($distribusiUsia as $usia)
+                                    <div class="progress-item">
+                                        <div class="progress-label">
+                                            <span>{{ $usia['range'] }}</span>
+                                            <span>{{ $usia['persentase'] }}%</span>
+                                        </div>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill"
+                                                style="width: {{ $usia['persentase'] }}%; background: linear-gradient(90deg, {{ $usia['warna'] }});">
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: {{ $usia['persentase'] }}%; background: linear-gradient(90deg, {{ $usia['warna'] }});"></div>
-                                    </div>
-                                </div>
                                 @endforeach
                             @else
                                 <div class="progress-item">
@@ -1409,54 +1578,57 @@
                 <div class="content-grid">
                     <div class="main-content">
                         <h2 class="section-title">Statistik Kependudukan</h2>
-                        <p>Sistem kependudukan berjalan optimal dengan data real-time yang terintegrasi. Total penduduk terdaftar: <strong>{{ $totalPenduduk ?? 0 }} orang</strong>.</p>
-                        <p>Monitoring menunjukkan distribusi penduduk berdasarkan wilayah dengan akurasi data mencapai 99.8%. Sistem telah memproses <strong>{{ $totalDokumen ?? 0 }} dokumen</strong> pencatatan sipil dengan efisiensi tinggi.</p>
+                        <p>Sistem kependudukan berjalan optimal dengan data real-time yang terintegrasi. Total penduduk
+                            terdaftar: <strong>{{ $totalPenduduk ?? 0 }} orang</strong>.</p>
+                        <p>Monitoring menunjukkan distribusi penduduk berdasarkan wilayah dengan akurasi data mencapai
+                            99.8%. Sistem telah memproses <strong>{{ $totalDokumen ?? 0 }} dokumen</strong> pencatatan
+                            sipil dengan efisiensi tinggi.</p>
 
                         <!-- Quick Actions -->
 
-                            <a href="{{ route('penduduk.index') }}" class="action-btn">
-                                <div class="action-icon">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                                <div class="action-text">Lihat Data</div>
-                            </a>
-                            <a href="{{ route('kelahiran.index') }}" class="action-btn">
-                                <div class="action-icon">
-                                    <i class="fas fa-baby"></i>
-                                </div>
-                                <div class="action-text">Data Kelahiran</div>
-                            </a>
-                            <a href="{{ route('kelahiran.create') }}" class="action-btn">
-                                <div class="action-icon">
-                                    <i class="fas fa-plus-circle"></i>
-                                </div>
-                                <div class="action-text">Tambah Kelahiran</div>
-                            </a>
-                        </div>
+                        <a href="{{ route('penduduk.index') }}" class="action-btn">
+                            <div class="action-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="action-text">Lihat Data</div>
+                        </a>
+                        <a href="{{ route('kelahiran.index') }}" class="action-btn">
+                            <div class="action-icon">
+                                <i class="fas fa-baby"></i>
+                            </div>
+                            <div class="action-text">Data Kelahiran</div>
+                        </a>
+                        <a href="{{ route('kelahiran.create') }}" class="action-btn">
+                            <div class="action-icon">
+                                <i class="fas fa-plus-circle"></i>
+                            </div>
+                            <div class="action-text">Tambah Kelahiran</div>
+                        </a>
                     </div>
+                </div>
 
-                    <div class="sidebar-right">
-                        <h2 class="section-title">Informasi Sistem</h2>
-                        <div class="user-info">
-                            <div class="info-label">Hari & Tanggal</div>
-                            <div class="info-value" id="currentDateTime">Loading...</div>
-                        </div>
-                        <div class="user-info">
-                            <div class="info-label">ID Petugas</div>
-                            <div class="info-value">ADM-{{ $userId ?? rand(1000, 9999) }}</div>
-                        </div>
-                        <div class="user-info">
-                            <div class="info-label">Wilayah Kerja</div>
-                            <div class="info-value">{{ $wilayahKerja ?? 'Kota Jakarta Pusat' }}</div>
-                        </div>
-                        <div class="user-info">
-                            <div class="info-label">Status Sistem</div>
-                            <div class="info-value" style="color: #4ecdc4;">● Online</div>
-                        </div>
+                <div class="sidebar-right">
+                    <h2 class="section-title">Informasi Sistem</h2>
+                    <div class="user-info">
+                        <div class="info-label">Hari & Tanggal</div>
+                        <div class="info-value" id="currentDateTime">Loading...</div>
+                    </div>
+                    <div class="user-info">
+                        <div class="info-label">ID Petugas</div>
+                        <div class="info-value">ADM-{{ $userId ?? rand(1000, 9999) }}</div>
+                    </div>
+                    <div class="user-info">
+                        <div class="info-label">Wilayah Kerja</div>
+                        <div class="info-value">{{ $wilayahKerja ?? 'Kota Jakarta Pusat' }}</div>
+                    </div>
+                    <div class="user-info">
+                        <div class="info-label">Status Sistem</div>
+                        <div class="info-value" style="color: #4ecdc4;">● Online</div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -1634,6 +1806,36 @@
                 this.classList.add('active');
             });
         });
+        // WhatsApp Button Configuration
+        function configureWhatsAppButton() {
+            const whatsappButton = document.getElementById('whatsappButton');
+
+            // Ganti nomor WhatsApp admin di sini
+            const adminPhone = '6281234567890'; // Format: 6281234567890 (tanpa +)
+            const defaultMessage = 'Halo Admin, saya ingin bertanya tentang sistem kependudukan';
+
+            // Encode message untuk URL
+            const encodedMessage = encodeURIComponent(defaultMessage);
+            whatsappButton.href = `https://wa.me/${adminPhone}?text=${encodedMessage}`;
+
+            // Add click animation
+            whatsappButton.addEventListener('click', function(e) {
+                this.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 300);
+            });
+        }
+
+        // Panggil fungsi konfigurasi
+        configureWhatsAppButton();
     </script>
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6281234567890?text=Halo%20Admin%2C%20saya%20ingin%20bertanya%20tentang%20sistem%20kependudukan"
+        class="whatsapp-float" target="_blank" id="whatsappButton">
+        <i class="fab fa-whatsapp"></i>
+        <div class="whatsapp-tooltip">Hubungi Admin</div>
+    </a>
 </body>
+
 </html>

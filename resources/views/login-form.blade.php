@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login kamu dulu</title>
+    <title>Login admin kependudukan</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         /* (Styles tetap sama seperti sebelumnya) */
@@ -430,10 +430,10 @@
 
         <div class="logo">
             <div class="logo-icon">
-                <i class="fas fa-key"></i>
+                <i class="fas fa-user-tie"></i>
             </div>
-            <h1>Login dulu kamu</h1>
-            <p>pengamanan yang aman insyaallah</p>
+            <h3>Login</h3>
+            <p>Kependudukan Admin</p>
         </div>
 
         @if(session('error'))
@@ -484,7 +484,7 @@
         </div>
 
         <div class="footer">
-            <i class="fas fa-code"></i> NEO SYSTEM v2.4
+            <i class="fas fa-code"></i>
         </div>
     </div>
 
