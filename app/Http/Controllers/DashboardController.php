@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth; 
+use Illuminate\Support\Facades\Auth;
+use App\Models\Penduduk;
+use App\Models\Kelahiran;
+use App\Models\OrangTua;
+
 class DashboardController extends Controller
 {
     /**
@@ -11,20 +15,69 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        // Get authenticated user data
         $user = Auth::user();
-        
-        // Data yang akan dikirim ke view
-        $data = [
+
+        // Hitung total data saja - tanpa query yang complex
+        $totalPenduduk = Penduduk::count();
+        $totalKelahiran = Kelahiran::count();
+        $totalOrangTua = OrangTua::count();
+
+        return view('dashboard', [
             'username' => $user->name ?? 'Guest',
             'email' => $user->email ?? 'No email',
             'role' => $user->role ?? 'User',
             'login_time' => now()->format('H:i:s'),
             'login_date' => now()->format('d F Y'),
-        ];
 
-        // Return view dengan data
-        return view('dashboard', $data);
+            // Data statistik utama saja
+            'totalPenduduk' => $totalPenduduk,
+            'totalKelahiran' => $totalKelahiran,
+            'totalOrangTua' => $totalOrangTua,
+            'totalDokumen' => $totalPenduduk + $totalKelahiran + $totalOrangTua,
+
+            // Data default untuk chart (bisa diubah nanti)
+            'persentaseLaki' => 65,
+            'persentasePerempuan' => 35,
+            'persentaseKelahiranLaki' => 60,
+            'persentaseKelahiranPerempuan' => 40,
+            'totalKelahiranLaki' => $totalKelahiran > 0 ? round($totalKelahiran * 0.6) : 0,
+            'totalKelahiranPerempuan' => $totalKelahiran > 0 ? round($totalKelahiran * 0.4) : 0,
+
+            // Data default lainnya
+            'distribusiUsia' => [],
+            'aktivitasTerbaru' => $this->getAktivitasSederhana(),
+            'statistikOrangTua' => [
+                'total' => $totalOrangTua,
+                'laki' => round($totalOrangTua * 0.5),
+                'perempuan' => round($totalOrangTua * 0.5),
+                'dengan_kelahiran' => round($totalOrangTua * 0.7),
+                'persentase_laki' => 50,
+                'persentase_perempuan' => 50,
+            ],
+
+            // User info
+            'userId' => $user->id ?? 'N/A',
+            'wilayahKerja' => $user->wilayah_kerja ?? 'Kota Jakarta Pusat',
+        ]);
+    }
+
+    /**
+     * Get aktivitas sederhana tanpa query complex
+     */
+    private function getAktivitasSederhana()
+    {
+        return [
+            [
+                'icon' => 'fa-info-circle',
+                'judul' => 'Sistem Kependudukan Aktif',
+                'waktu' => 'Siap digunakan'
+            ],
+            [
+                'icon' => 'fa-database',
+                'judul' => 'Data terintegrasi',
+                'waktu' => 'Update: ' . now()->format('d M Y')
+            ]
+        ];
     }
 
     /**
@@ -33,7 +86,7 @@ class DashboardController extends Controller
     public function profile()
     {
         $user = Auth::user();
-        
+
         return view('dashboard.profile', [
             'user' => $user
         ]);
@@ -44,66 +97,18 @@ class DashboardController extends Controller
      */
     public function statistics()
     {
-        // Contoh data statistik
+        $user = Auth::user();
+
         $stats = [
-            'total_users' => 150,
-            'active_sessions' => 45,
-            'today_logins' => 23,
+            'total_penduduk' => Penduduk::count(),
+            'total_kelahiran' => Kelahiran::count(),
+            'total_orang_tua' => OrangTua::count(),
             'system_status' => 'Normal'
         ];
 
         return view('dashboard.statistics', [
             'stats' => $stats,
-            'username' => Auth::user()->name ?? 'Guest'
+            'username' => $user->name ?? 'Guest'
         ]);
-    }
-
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }
