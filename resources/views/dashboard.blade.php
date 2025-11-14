@@ -337,7 +337,7 @@
                     <div class="progress-info">
                         <div class="progress-label">
                             <span class="gender-indicator male"></span>
-                            <span>Laki-laki</span>
+                            <span>Laki-lakip</span>
                         </div>
                         <span class="progress-value">{{ $statistikOrangTua['persentase_laki'] ?? 0 }}%</span>
                     </div>
